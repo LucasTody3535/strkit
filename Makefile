@@ -12,6 +12,9 @@ STATIC_LIB_COMPILER_FLAGS = -c -O2
 SOURCE_CODE = ./src/hamming_distance.c
 PATH_TO_HEADERS = -I./include/
 
+#SOURCE_CODE_OF_TESTS =
+#TEST_FILE_TARGET =
+
 all: $(OUTPUT_FOLDER) $(SHARED_LIB_TARGET) $(STATIC_LIB_TARGET)
 
 	@printf "\n Location of files: ./output"
@@ -46,3 +49,13 @@ check:
 	@printf "\n Checking environment..."
 	@printf "\n  -> GCC version: %s" $$(gcc -dumpversion)
 	@printf "\n  -> Environment: %s %s\n\n" $$(uname -o) $$(uname -m)
+
+tests: $(TEST_FILE_TARGET)
+$(TEST_FILE_TARGET): $(SOURCE_CODE_OF_TESTS)
+	@clear
+	@printf "\n Compiling tests..."
+	@mkdir -p $(OUTPUT_FOLDER)
+#	@$(COMPILER) $(COMPILER_FLAGS_FOR_TESTS) $(PATH_TO_HEADERS) -o $@ $^
+	@printf "\n Running tests...\n\n"
+#	@./output/tests
+	@printf "\n Tests ended!\n\n"
