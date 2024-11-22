@@ -9,7 +9,7 @@ STATIC_LIB_OBJ_FILES = $(OUTPUT_FOLDER)/*.o
 STATIC_LIB_TARGET = $(OUTPUT_FOLDER)/strkit.a
 STATIC_LIB_COMPILER_FLAGS = -c -O2
 
-#SOURCE_CODE =
+SOURCE_CODE = ./src/hamming_distance.c
 PATH_TO_HEADERS = -I./include/
 
 all: $(OUTPUT_FOLDER) $(SHARED_LIB_TARGET) $(STATIC_LIB_TARGET)
@@ -26,12 +26,12 @@ $(OUTPUT_FOLDER):
 
 $(SHARED_LIB_TARGET): $(SOURCE_CODE)
 	@printf "\n Starting shared library creation process..."
-#	@$(COMPILER) $(PATH_TO_HEADERS) $(COMPILER_FLAGS) -o $@ $^ $(SHARED_LIB_COMPILER_FLAGS)
+	@$(COMPILER) $(PATH_TO_HEADERS) $(COMPILER_FLAGS) -o $@ $^ $(SHARED_LIB_COMPILER_FLAGS)
 	@printf " Done"
 
 $(STATIC_LIB_TARGET): $(SOURCE_CODE)
 	@printf "\n Starting static library creation process..."
-#	@$(COMPILER) $(PATH_TO_HEADERS) $(STATIC_LIB_COMPILER_FLAGS) -o ./output/hamming_distance.o ./src/hamming_distance.c
+	@$(COMPILER) $(PATH_TO_HEADERS) $(STATIC_LIB_COMPILER_FLAGS) -o ./output/hamming_distance.o ./src/hamming_distance.c
 	@ar rcs $@ $(STATIC_LIB_OBJ_FILES)
 	@printf " Done"
 
