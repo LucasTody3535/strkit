@@ -12,8 +12,8 @@ STATIC_LIB_COMPILER_FLAGS = -c -O2
 SOURCE_CODE = ./src/hamming_distance.c
 PATH_TO_HEADERS = -I./include/
 
-#SOURCE_CODE_OF_TESTS =
-#TEST_FILE_TARGET =
+SOURCE_CODE_OF_TESTS = ./src/hamming_distance.c ./test_src/assert.c ./main.c
+TEST_FILE_TARGET = $(OUTPUT_FOLDER)/tests
 
 all: $(OUTPUT_FOLDER) $(SHARED_LIB_TARGET) $(STATIC_LIB_TARGET)
 
@@ -55,7 +55,7 @@ $(TEST_FILE_TARGET): $(SOURCE_CODE_OF_TESTS)
 	@clear
 	@printf "\n Compiling tests..."
 	@mkdir -p $(OUTPUT_FOLDER)
-#	@$(COMPILER) $(COMPILER_FLAGS_FOR_TESTS) $(PATH_TO_HEADERS) -o $@ $^
+	@$(COMPILER) $(COMPILER_FLAGS_FOR_TESTS) $(PATH_TO_HEADERS) -o $@ $^
 	@printf "\n Running tests...\n\n"
-#	@./output/tests
+	@./output/tests
 	@printf "\n Tests ended!\n\n"
